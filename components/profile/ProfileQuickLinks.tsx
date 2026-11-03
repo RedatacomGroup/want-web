@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function ProfileQuickLinks({username}:{username:string}){return <section className="profile-quick-links"><Link href="/profile/desire-dna"><strong>Desire DNA</strong><span>See what pulls you in →</span></Link><Link href="/profile/badges"><strong>Badges</strong><span>View and equip identity →</span></Link><Link href={`/u/${username}`}><strong>Public profile</strong><span>See what everyone sees →</span></Link><Link href="/profile/edit"><strong>Edit profile</strong><span>Identity, location and privacy →</span></Link></section>}

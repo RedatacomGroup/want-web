@@ -1,0 +1,4 @@
+"use client";
+import{useEffect,useState}from"react";import{socialApi}from"@/lib/social";
+type Props={userId:string;initialPinned?:boolean;onChange?:(pinned:boolean)=>void};
+export function PinButton({userId,initialPinned=false,onChange}:Props){const[pinned,setPinned]=useState(initialPinned);const[busy,setBusy]=useState(false);const[ready,setReady]=useState(initialPinned);useEffect(()=>{let active=true;Promise.resolve().then(async()=>{try{const state=await socialApi.status(userId);if(active)setPinned(state.isPinned)}finally{if(active)setReady(true)}});return()=>{active=false}},[userId]);async function toggle(){if(busy)return;setBusy(true);try{const state=pinned?await socialApi.unpin(userId):await socialApi.pin(userId);setPinned(state.isPinned);onChange?.(state.isPinned)}finally{setBusy(false)}}return <button type="button" className={`pin-button ${pinned?"pinned":""}`} onClick={()=>void toggle()} disabled={busy||!ready}>{busy?"…":pinned?"Pinned ✓":"Pin"}</button>}

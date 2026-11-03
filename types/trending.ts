@@ -1,0 +1,3 @@
+export interface TrendingDesire { rank:number; id:string; creator:{userId:string;username:string;displayName:string|null;profileImageUrl:string|null;totalWantsGenerated:number}; category:{slug:string;name:string}; title:string;caption:string|null;countryCode:string|null;image:{url:string;thumbnailUrl:string|null}|null;stats:{wants:number;passes:number;lifetimeImpressions:number;recentWants:number;recentPasses:number;recentImpressions:number;recentShares:number;recentWantRate:number;score:number};publishedAt:string|null; }
+export interface TrendingPayload { windowHours:number;items:TrendingDesire[];countryCode?:string;category?:{slug:string;name:string}; }
+export interface TrendingResponse { success:true;trending:TrendingPayload;requestId?:string; }

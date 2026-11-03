@@ -1,0 +1,2 @@
+import type{PublicProfile}from"@/types/user";
+export function ProfileInterests({profile}:{profile:PublicProfile}){return <section className="public-panel"><div className="public-section-head"><h2>Declared taste</h2><span>{profile.interests?.length||0} signals</span></div><div className="chip-grid">{profile.interests?.map(i=><span className="choice-chip active public-chip" key={i.slug}>{i.name}</span>)}</div></section>}

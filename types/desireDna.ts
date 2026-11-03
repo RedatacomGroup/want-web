@@ -1,0 +1,5 @@
+export interface DnaCategory { rank:number;id:string;slug:string;name:string;iconKey:string|null;percentage:number;score:number;declaredWeight:number;decisions:number;wants:number;passes:number;wantRate:number|null; }
+export interface DnaBehavior { totalDecisions:number;wants:number;passes:number;wantRate:number|null;categoryBreadth:number;creatorBreadth:number;diversityScore:number;confidenceScore:number;firstDecisionAt:string|null;lastDecisionAt:string|null; }
+export interface DnaCreator { userId:string;username:string;displayName:string|null;profileImageUrl:string|null;wantedCount:number; }
+export interface DesireDna { user:{userId:string;username:string;displayName:string|null;profileImageUrl:string|null;countryCode:string|null};summary:string;confidence:{score:number;label:"early"|"developing"|"strong"|string;decisions:number;nextStrongSignalAt:number};categories:DnaCategory[];colors:string[];behavior:DnaBehavior;topCreators:DnaCreator[];generatedAt:string; }
+export interface DesireDnaResponse { success:true;dna:DesireDna;requestId?:string; }

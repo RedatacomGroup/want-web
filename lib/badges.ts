@@ -1,0 +1,2 @@
+import{api}from"@/lib/api";import type{BadgeEquipResponse,BadgeMine,BadgeMineResponse,BadgeRefreshResponse,BadgeUnequipResponse}from"@/types/badge";
+export const badgeApi={mine:async():Promise<BadgeMine>=>(await api.get<BadgeMineResponse>("badges/me")).badges,refresh:()=>api.post<BadgeRefreshResponse>("badges/me/refresh"),equip:(code:string)=>api.put<BadgeEquipResponse>(`badges/me/equipped/${encodeURIComponent(code)}`),unequip:()=>api.delete<BadgeUnequipResponse>("badges/me/equipped")};

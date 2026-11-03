@@ -1,0 +1,3 @@
+"use client";
+import Link from"next/link";import{AdminGuard}from"@/components/admin/AdminGuard";
+export default function AdminPage(){return <AdminGuard><header className="admin-hero"><span className="eyebrow">WANT CONTROL</span><h1>Moderation.</h1><p>Review reports, protect visible desires and inspect accounts with active moderation signals.</p></header><section className="admin-dashboard"><Link href="/admin/reports"><strong>Reports</strong><span>Open the moderation queue →</span></Link><Link href="/admin/desires"><strong>Desires</strong><span>Remove or restore content →</span></Link><Link href="/admin/users"><strong>Users</strong><span>Inspect account and report signals →</span></Link></section></AdminGuard>}

@@ -1,0 +1,2 @@
+import type{PublicProfile}from"@/types/user";
+export function WantsGenerated({profile}:{profile:PublicProfile}){return <section className="public-stats"><article><strong>{profile.totalWantsGenerated}</strong><span>Wants generated</span></article><article><strong>{profile.desiresPosted}</strong><span>Desires posted</span></article><article><strong>{profile.currentStreakDays}</strong><span>Current streak</span></article><article><strong>{profile.longestStreakDays}</strong><span>Longest streak</span></article></section>}

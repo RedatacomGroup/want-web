@@ -1,0 +1,2 @@
+import type { Desire } from "@/types/desire";
+export function DesireStats({ desire }: { desire: Desire }) { const total = desire.stats.wants + desire.stats.passes; const rate = total ? Math.round((desire.stats.wants / total) * 100) : 0; return <div className="detail-stats"><div><strong>{desire.stats.wants}</strong><span>Wants</span></div><div><strong>{rate}%</strong><span>Want rate</span></div><div><strong>{desire.stats.impressions}</strong><span>Impressions</span></div><div><strong>{desire.stats.shares}</strong><span>Shares</span></div></div>; }

@@ -1,0 +1,4 @@
+"use client";
+import type{WantNotification}from"@/types/notification";
+const glyph:Record<string,string>={badge_unlocked:"✦",desire_milestone:"◆",desire_trending:"↗",rank_changed:"#",moderation:"!",system:"●"};
+export function NotificationItem({item,busy,onToggle,onDelete}:{item:WantNotification;busy:boolean;onToggle:(n:WantNotification)=>void;onDelete:(id:string)=>void}){return <article className={`notification-item ${item.read?"read":"unread"}`}><span className={`notification-glyph type-${item.type}`}>{glyph[item.type]||"●"}</span><div className="notification-copy"><div><strong>{item.title}</strong>{!item.read&&<i>NEW</i>}</div><p>{item.body}</p><small>{new Date(item.createdAt).toLocaleString()}</small></div><div className="notification-actions"><button disabled={busy} onClick={()=>onToggle(item)}>{item.read?"Unread":"Read"}</button><button disabled={busy} onClick={()=>onDelete(item.id)}>Delete</button></div></article>}

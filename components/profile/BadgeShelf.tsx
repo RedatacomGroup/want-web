@@ -1,0 +1,2 @@
+import type{PublicProfile}from"@/types/user";
+export function BadgeShelf({profile}:{profile:PublicProfile}){if(!profile.badges?.length)return null;return <section className="public-panel"><div className="public-section-head"><h2>Badges</h2><span>{profile.badges.length}</span></div><div className="public-badges">{profile.badges.map(b=><article key={b.code}><span className="badge-glyph">✦</span><div><strong>{b.name}</strong><p>{b.description}</p><small>{b.rarity}</small></div></article>)}</div></section>}

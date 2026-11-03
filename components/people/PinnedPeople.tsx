@@ -1,0 +1,3 @@
+import type{SocialPerson}from"@/types/social";import{PersonCard}from"./PersonCard";
+type Props={people:SocialPerson[];loading:boolean;onPin:(person:SocialPerson)=>Promise<void>;onUnpin:(person:SocialPerson)=>Promise<void>};
+export function PinnedPeople({people,loading,onPin,onUnpin}:Props){if(loading)return <div className="people-loading"/>;if(!people.length)return <section className="people-empty"><h2>No one pinned yet.</h2><p>Search for people whose taste you want to keep close.</p></section>;return <section className="people-grid">{people.map(p=><PersonCard key={p.userId} person={p} onPin={onPin} onUnpin={onUnpin}/>)}</section>}

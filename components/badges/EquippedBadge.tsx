@@ -1,0 +1,2 @@
+import type{Badge}from"@/types/badge";
+export function EquippedBadge({badge,busy,onUnequip}:{badge:Badge|null;busy:boolean;onUnequip:()=>void}){return <section className="equipped-badge"><div><span className="eyebrow">EQUIPPED BADGE</span>{badge?<><h2>✦ {badge.name}</h2><p>{badge.description}</p></>:<><h2>Nothing equipped.</h2><p>Choose an earned badge to make it part of your public identity.</p></>}</div>{badge&&<button type="button" onClick={onUnequip} disabled={busy}>Unequip</button>}</section>}

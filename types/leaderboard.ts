@@ -1,0 +1,2 @@
+export interface Tastemaker { rank:number;userId:string;username:string;displayName:string|null;profileImageUrl:string|null;countryCode:string|null;totalWantsGenerated:number;desiresPosted:number;recentWantsGenerated?:number;equippedBadge:{code:string;name:string;iconKey:string|null}|null; }
+export interface LeaderboardResponse { success:true;items:Tastemaker[];days?:number;countryCode?:string;category?:{slug:string;name:string};requestId?:string; }

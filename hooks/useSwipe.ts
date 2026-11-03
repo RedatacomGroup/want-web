@@ -1,0 +1,3 @@
+"use client";
+import{useCallback,useState}from"react";import{swipeApi}from"@/lib/swipes";import type{FeedSurface}from"@/types/feed";import type{SwipeDecision,SwipeResponse}from"@/types/swipe";
+export function useSwipe(){const[isSwiping,setIsSwiping]=useState(false);const[error,setError]=useState("");const decide=useCallback(async(desireId:string,decision:SwipeDecision,surface:FeedSurface,sessionKey:string|null):Promise<SwipeResponse>=>{setIsSwiping(true);setError("");try{return await swipeApi.decide({desireId,decision,surface,sessionKey})}catch(e){setError(e instanceof Error?e.message:"Could not save your decision.");throw e}finally{setIsSwiping(false)}},[]);return{decide,isSwiping,error,clearError:()=>setError("")}}
