@@ -14,8 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "WANT",
-    template: "%s | WANT",
+    default: "DESCRAVE",
+    template: "%s | DESCRAVE",
   },
   description: "A desire-first social experience.",
 };
